@@ -1,0 +1,25 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "team profile generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharee-k/team-profile-generator.git"
+  },
+  "author": "Sharee Burkeen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharee-k/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/sharee-k/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^26.2.2"
+  }
+}
