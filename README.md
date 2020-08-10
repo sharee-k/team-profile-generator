@@ -15,8 +15,8 @@ This project was built with Node, JS, HTML, Bootstrap, and Font Awesome.
 ![Website Screenshot 1](./assets/images/screenshot.png)
 
 ## Link
-https://github.com/sharee-k/team-profile-generator
-https://drive.google.com/file/d/1d3hnBJYBfM-NV-Ximz8XQQSAH4iOqlkk/view
+- https://github.com/sharee-k/team-profile-generator
+- https://drive.google.com/file/d/1d3hnBJYBfM-NV-Ximz8XQQSAH4iOqlkk/view
 
 ## Status
 This project is finished for this training challenge.
