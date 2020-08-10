@@ -12,6 +12,7 @@ const render = require("./utils/generate-html.js");
 
 const teamProfile = []
 
+//manager input
 const managerPrompt = () => {
     return new Promise((resolve, reject) => {
         inquirer
@@ -44,8 +45,9 @@ const managerPrompt = () => {
     });
 }
 
+//engineer and intern input function
 const employeePrompt = () => {
-    return new Promise((resolve, rej) => {
+    return new Promise((resolve, reject) => {
         inquirer.prompt([
             {
                 type: "list",
@@ -55,20 +57,17 @@ const employeePrompt = () => {
                     "Engineer",
                     "Intern",
                     {
-                        name: "No more employees to add",
+                        name: "None",
                         value: false
                     }
                 ]
             },
+
+            //engineer input
             {
                 message: "What is the engineer's name?",
                 name: "name",
                 when: ({ employeeType }) => employeeType === "Engineer"
-            },
-            {
-                message: "What is the intern's name?",
-                name: "name",
-                when: ({ employeeType }) => employeeType === "Intern"
             },
             {
                 message: "What is the engineer's ID?",
@@ -76,24 +75,31 @@ const employeePrompt = () => {
                 when: ({ employeeType }) => employeeType === "Engineer"
             },
             {
-                message: "What is the intern's ID?",
-                name: "id",
-                when: ({ employeeType }) => employeeType === "Intern"
-            },
-            {
                 message: "What is the engineer's email address?",
                 name: "email",
                 when: ({ employeeType }) => employeeType === "Engineer"
             },
             {
-                message: "What is the intern's email address?",
-                name: "email",
-                when: ({ employeeType }) => employeeType === "Intern"
-            },
-            {
                 message: "what is the engineer's GitHub username?",
                 name: "github",
                 when: ({ employeeType }) => employeeType === "Engineer"
+            },
+
+            //intern input
+            {
+                message: "What is the intern's name?",
+                name: "name",
+                when: ({ employeeType }) => employeeType === "Intern"
+            },
+            {
+                message: "What is the intern's ID?",
+                name: "id",
+                when: ({ employeeType }) => employeeType === "Intern"
+            },
+            {
+                message: "What is the intern's email address?",
+                name: "email",
+                when: ({ employeeType }) => employeeType === "Intern"
             },
             {
                 message: "Which school is the intern from?",
@@ -120,6 +126,7 @@ const employeePrompt = () => {
     })
 }
 
+//create and write HTML file
 const createHTMLFile = (htmlPage) => {
     if (!fs.existsSync(DIST_DIR)) {
         fs.mkdirSync(DIST_DIR);
@@ -127,11 +134,11 @@ const createHTMLFile = (htmlPage) => {
 
     fs.writeFile(distPath, htmlPage, "utf-8", (err) => {
         if(err) throw err;
-        console.log(`Team profile page sucessfully generated in ${distPath}`)
+        console.log(`Team profile page sucessfully generated.`)
     });
 }
 
-//call the manager first, then Engineer or Intern
+//input manager first, then engineer or intern
 managerPrompt().then(() => {
     return employeePrompt();
 }).then(() => {
